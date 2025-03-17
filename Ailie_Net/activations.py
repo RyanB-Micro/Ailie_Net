@@ -1,9 +1,12 @@
 
+import numpy as np
+from Ailie_Net import *
+
 def sigmoid(l):
     return 1 / (1 + np.exp(-l))
 
 def sigmoid_prime(l):
-    sigmoid(l) * (1 - sigmoid(l))
+    return sigmoid(l) * (1 - sigmoid(l))
 
 def relu(l):
     return np.maximum(0, l)

@@ -6,10 +6,13 @@ Author: Ryan Brown
 Date Created: 17.03.2025
 ------------------------
 Last Edited: 17.03.2025
-Last Change: Adding Dense layer class
-Location: https://github.com/CMOSSE101/Ailie_Net
+Last Change: Adding Doc-Strings to internal methods
+Repo: https://github.com/CMOSSE101/Ailie_Net
 """
 __author__ = "CMOSSE101"
+
+import numpy as np
+from .activations import *
 
 class Dense():
     """ Fully Connected Dense Neural Layer

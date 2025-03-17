@@ -1,3 +1,5 @@
+import Ailie_Net
+
 def cost(prediction, target):
     return (target - prediction)**2
 

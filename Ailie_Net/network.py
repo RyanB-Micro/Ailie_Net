@@ -1,3 +1,7 @@
+
+import numpy as np
+from .activations import *
+
 class AilieNet():
     def __init__(self, ):
         self.layers = []
@@ -6,9 +10,9 @@ class AilieNet():
         self.input_buf = input_in
         for layer in self.layers:
             self.prediction_buf = layer.forward(self.input_buf)
-            self.input_buf = sigmoid(self.prediction_buf)
+            self.input_buf = self.prediction_buf
         # final activation
-        # self.prediction_buf = sigmoid(self.prediction_buf)
+        #self.prediction_buf = sigmoid(self.prediction_buf)
         return self.prediction_buf
 
     def backward(self, error, learn_rate):
