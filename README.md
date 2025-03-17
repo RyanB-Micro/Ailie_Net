@@ -3,8 +3,7 @@ Neural Network Experiments - Developing Ailie AI
 
 
 # Bibliography
-Biological Neurology Background
-
+Biological Neurology Background\
 [1] Neuroscientifically Challenged, 2-Minute Neuroscience: Action Potential, (Jul. 26, 2014). Accessed: Jan. 29, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=W2hHt_PXe5o
 [2] Neuroscientifically Challenged, 2-Minute Neuroscience: Divisions of the Nervous System, (Aug. 08, 2014). Accessed: Feb. 02, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=q3OITaAZLNc
 [3] Neuroscientifically Challenged, 2-Minute Neuroscience: Membrane Potential, (Jul. 25, 2014). Accessed: Jan. 28, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=tIzF2tWy6KI
@@ -17,8 +16,7 @@ Biological Neurology Background
 [10] BioME, Temporal vs. Spatial Summation, (Jul. 30, 2020). Accessed: Feb. 02, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=KQOM_sXBtbw
 [11] Bing Wen Brunton, Types of Synapses, (May 26, 2023). Accessed: Feb. 03, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=m4mNqY9iseE
 
-Neural Networks Mathamatics
-
+Neural Networks Mathematics\
 [1] 3Blue1Brown, Backpropagation calculus | DL4, (Nov. 03, 2017). Accessed: Mar. 12, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=tIeHLnjs5U8
 [2] 3Blue1Brown, Backpropagation, step-by-step | DL3, (Nov. 03, 2017). Accessed: Mar. 12, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=Ilg3gGewQ5U
 [3] 3Blue1Brown, But what is a neural network? | Deep learning chapter 1, (Oct. 05, 2017). Accessed: Mar. 12, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=aircAruvnKk
@@ -33,8 +31,7 @@ Neural Networks Mathamatics
 [12] Dr. Trefor Bazett, The Multi-Variable Chain Rule: Derivatives of Compositions, (Nov. 13, 2019). Accessed: Mar. 11, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=9yCtWfI_Vjg
 [13] The Organic Chemistry Tutor, Understand Calculus in 35 Minutes, (Sep. 10, 2018). Accessed: Mar. 10, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=WsQQvHm4lSw
 
-AI Coding in Python
-
+AI Coding in Python\
 [1] First Principles of Computer Vision, Backpropagation Algorithm | Neural Networks, (Jun. 10, 2021). Accessed: Mar. 14, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=sIX_9n-1UbM
 [2] DeepBean, Backpropagation: How Neural Networks Learn, (Feb. 27, 2023). Accessed: Mar. 15, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=fGDT63dZcvE
 [3] Samson Zhang, Building a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy & math), (Nov. 24, 2020). Accessed: Mar. 12, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=w8yWXqWQYmU
@@ -48,17 +45,14 @@ AI Coding in Python
 [11] M. A. Nielsen, ‘Neural Networks and Deep Learning’, 2015, Accessed: Mar. 14, 2025. [Online]. Available: http://neuralnetworksanddeeplearning.com
 [12] Python Simplified, Perceptron Algorithm with Code Example - ML for beginners!, (Jun. 03, 2021). Accessed: Mar. 13, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=-KLnurhX-Pg
 
-Chatbot AI
-
+Chatbot AI\
 [1] freeCodeCamp.org, Create a Large Language Model from Scratch with Python – Tutorial, (Aug. 25, 2023). Accessed: Mar. 07, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=UU1WVnMk4E8
 [2] Tech With Tim, Python Chat Bot Tutorial - Chatbot with Deep Learning (Part 1), (May 28, 2019). Accessed: Mar. 07, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=wypVcNIH6D4
 
-Speech Recognition
-
+Speech Recognition\
 [1] NeuralNine, Speech Recognition in Python, (Mar. 28, 2021). Accessed: Mar. 09, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=9GJ6XeB-vMg
 
-Python Programming
-
+Python Programming\
 [1] freeCodeCamp.org, Create a Large Language Model from Scratch with Python – Tutorial, (Aug. 25, 2023). Accessed: Mar. 07, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=UU1WVnMk4E8
 [2] Tech With Tim, Python Chat Bot Tutorial - Chatbot with Deep Learning (Part 1), (May 28, 2019). Accessed: Mar. 07, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=wypVcNIH6D4
 
