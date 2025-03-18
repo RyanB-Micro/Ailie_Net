@@ -14,16 +14,34 @@ __author__ = "CMOSSE101"
 import numpy as np
 from .activations import *
 
-class Dense():
+
+class Dense:
     """ Fully Connected Dense Neural Layer
-    :param neurons: The quantity of neurons in this layer
-    :param input_size: The number of weighted connections to the previous layer
-    :param self.weight: 2D Matrix to store weight parameter values
-    :param self.bias: 1D Matrix to store boas parameter values
-    :param self.weighted_sum: 1D Matrix to store weighted sum result
-    :param self.outputs: 1D Matrix to store and return layer result
+
+    This class templates a fully connected Neural Layer to be used
+    within an Ailie Neural Network.
+
+    The user can specify the number of parallel neurons creat within this
+    layer, and the quantity of inouts these neurons use.
+
+    The dimentions and starting values of weight and bias matricies are auto generated.
+
+    :param neurons: The quantity of neurons in this layer.
+    :param input_size: The number of weighted connections to the previous layer.
+    :type neurons: int
+    :type input_size: int
+
+    :var self.weight: 2D Matrix to store layer weight values.
+    :var self.bias: 1D Matrix to store bias values.
+    :var self.weighted_sum: 1D Matrix to store weighted sum result.
+    :var self.outputs: 1D Matrix to store and return layer result.
+
+    :Example:
+    >>> layer0 = Dense(8, 11)
+    Create a layer with 8 neurons, each taking 11 internally weighted inputs.
+
     """
-    def __init__(self, neurons, input_size):
+    def __init__(self, neurons: int, input_size: int):
         self.neurons = neurons
         self.input_size = input_size
         self.weight = np.random.random((neurons, input_size)) - 0.5
@@ -32,45 +50,53 @@ class Dense():
         self.inputs = np.zeros(input_size)
         self.outputs = np.zeros(neurons)
 
-    def size(self):
+    def size(self) -> None:
         """ Displays the current matrix sizes used by the layer """
-        print()
-        print("Weight Size: ", self.weight.shape)
+        print("\nWeight Size: ", self.weight.shape)
         print("Bias Size: ", self.bias.shape)
         print("Input Size: ", self.inputs.shape)
         print("Weighted Sum Size: ", self.weighted_sum.shape)
         print("Output Size: ", self.outputs.shape)
 
-    def vals(self):
+    def vals(self) -> None:
         """ Displays the current values of matrices used within the layer """
-        print()
-        print("Weight Value: ", self.weight)
+        print("\nWeight Value: ", self.weight)
         print("Bias Value: ", self.bias)
         print("Input Value: ", self.inputs)
         print("Weighted Sum Value: ", self.weighted_sum)
         print("Output Value: ", self.outputs)
 
-    def forward(self, input_in):
+    def forward(self, input_in: np.ndarray) -> np.ndarray:
         """ Forward propagates the input through the Neural Layer
         :param input_in: The input matrix provided to the entire layer
-        :param self.inputs: 1D Matrix to store provided layer input values
-        :param weighted_sum: 1D Matrix to store results of weighted sum computation
-        :param self.outputs: 1D Matrix to return the layers result post activation function
+        :type: input_in: np.ndarray
+
+        :var self.inputs: 1D Matrix to store provided layer input values
+        :var self.weighted_sum: 1D Matrix to store results of weighted sum computation
+        :var self.outputs: 1D Matrix to return the layers result post activation function
         """
         self.inputs = input_in
         self.weighted_sum = np.dot(self.weight, self.inputs) + self.bias
         self.outputs = relu(self.weighted_sum)
         return self.outputs
 
-    def back_stat(self):
+    def back_stat(self) -> None:
         """ Displays the current values of derivative parameters """
-        print()
-        print("Dif Layer", self.dcost_dlayer)
+        print("\nDif Layer", self.dcost_dlayer)
         print("Dif Weight", self.dcost_dweight)
         print("Dif Bias", self.dcost_dbias)
         print("Dif Input", self.dcost_dinput)
 
-    def backward(self, layer_error):
+    def backward(self, layer_error: np.ndarray) -> np.ndarray:
+        """
+
+        :param layer_error: Takes in the error attributed to the current layer.
+
+        :var self.dcost_dinput: Stores the derivative of the weight matrix.
+
+
+        :return: Returns the calculated errors attributed to the previous layer.
+        """
         self.dcost_dweight = np.ones((self.neurons, self.input_size))
 
         self.dcost_dlayer = layer_error
@@ -83,8 +109,5 @@ class Dense():
         return self.dcost_dinput
 
     def update(self, alpha):
-        # print()
-        # print("\nWeight: ", self.weight)
-        # print("Weight Cost: ", self.dcost_dweight)
         self.weight = self.weight - (alpha * self.dcost_dweight)
         self.bias = self.bias - (alpha * self.dcost_dbias)
