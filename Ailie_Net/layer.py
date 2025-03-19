@@ -28,8 +28,8 @@ class Dense:
 
     :param neurons: The quantity of neurons in this layer.
     :param input_size: The number of weighted connections to the previous layer.
-    :type neurons: int
-    :type input_size: int
+    :type neurons: int.
+    :type input_size: int.
 
     :var self.weight: 2D Matrix to store layer weight values.
     :var self.bias: 1D Matrix to store bias values.
@@ -41,6 +41,7 @@ class Dense:
     Create a layer with 8 neurons, each taking 11 internally weighted inputs.
 
     """
+
     def __init__(self, neurons: int, input_size: int):
         self.neurons = neurons
         self.input_size = input_size
@@ -49,6 +50,10 @@ class Dense:
         self.weighted_sum = np.zeros(neurons)
         self.inputs = np.zeros(input_size)
         self.outputs = np.zeros(neurons)
+        self.dcost_dweight = None
+        self.dcost_dlayer = None
+        self.dcost_dbias = None
+        self.dcost_dinput = None
 
     def size(self) -> None:
         """ Displays the current matrix sizes used by the layer """
@@ -101,13 +106,14 @@ class Dense:
 
         self.dcost_dlayer = layer_error
         for i in range(0, self.neurons):
-            self.dcost_dweight[i] = self.inputs * layer_error[i]
+            #self.dcost_dweight[i] = self.inputs * layer_error[i]
+            self.dcost_dweight[i] = np.dot(self.inputs, layer_error[i])
         # self.dcost_dweight = self.inputs.dot(layer_error)
         self.dcost_dbias = layer_error * 1
         # self.dcost_dinput = self.weight.T * layer_error
         self.dcost_dinput = self.weight.T.dot(layer_error)
         return self.dcost_dinput
 
-    def update(self, alpha):
+    def update(self, alpha: float) -> None:
         self.weight = self.weight - (alpha * self.dcost_dweight)
         self.bias = self.bias - (alpha * self.dcost_dbias)

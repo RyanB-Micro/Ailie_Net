@@ -1,0 +1,54 @@
+{
+  "Chat_Scripts" : [
+    {"exp": "1",
+      "input" : "Hello",
+      "response" : "Hello"
+    },
+
+    {"exp": "2",
+      "input" : "Hey",
+      "response" : "Hello"
+    },
+
+    {"exp": "3",
+      "input" : "Hey",
+      "response" : "Hey"
+    },
+
+    {"exp": "4",
+      "input" : "What is your name",
+      "response" : "I am Chatty"
+    },
+
+    {"exp": "5",
+      "input" : "Whats your name",
+      "response" : "Chatty"
+    },
+
+    {"exp": "6",
+      "input" : "Who are you",
+      "response" : "My name is Chatty"
+    },
+
+    {"exp": "7",
+      "input" : "Bye",
+      "response" : "Bye!"
+    },
+
+    {"exp": "8",
+      "input" : "Goodbye",
+      "response" : "GoodBye"
+    },
+
+    {"exp": "9",
+      "input" : "Bye",
+      "response" : "See Ya!"
+    },
+
+    {"exp": "10",
+      "input" : "Whats your name",
+      "response" : "My name is Chatty"
+    }
+  ]
+
+}
