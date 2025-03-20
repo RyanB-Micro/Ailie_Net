@@ -2,21 +2,41 @@
 """
 This program tests a single layer implementation of an Ailey_Net Neural Network.
 
-Concept: Single Layer Pattern Detector
-Brief: This project detects whether a "pillar" pattern is detected on the left or right side
-of a sample "image". This is implemented using a networks comprised of a single Dense layer.
-
-Example: The pattern "[1, 0, 0]" represents an object detected on the left side of the image.
-This should result with the response "[1, 0]" signifying a detection on the "left" detector neuron.
-The pattern "[0, 0, 1]" represents an object present on the right side.
-Pattern "[0, 0, 0]" represents no object present to detect.
-
 Author: Ryan Brown
 Date Created: 17.03.2025
 ------------------------
-Last Edited: 17.03.2025
-Last Change: Creation of test file
+Last Edited: 20.03.2025
+Last Change: Modification of the program brief
 Repo: https://github.com/CMOSSE101/Ailie_Net
+
+Concept: Single Layer Pattern Detector
+
+Brief: This project detects patterns for whether an "object"  is detected on the left or right side
+of an input. This is implemented using a networks comprised of a single Dense layer.
+
+Problem Scenario: A "robot" is using a very simple sensor array to navigate a space.
+In order to avoid obstacles, the robot needs an AI system capable of detecting objects,
+so it can decide on which direction it needs to move.
+
+ [Object]   [Object]   [No Object]
+
+            o  o  o
+             \ | /
+            -------
+           |(robot)\
+           ---------
+
+    (Decision: Objects detected on Left Side)
+
+Using the 3 onboard sensors, the robot needs to be able to detect if there is any objects
+facing its front left side, or its front right side. Once the AI has determined if there are any objects
+on its left or right side, it can then make its decision on the best direction it should move.
+
+
+Example: The pattern "[1, 0, 0]" represents an object detected on the left side of the robot.
+This should result with the response "[1, 0]" signifying a detection on the "left" detector neuron.
+The pattern "[0, 0, 1]" represents an object present on the right side.
+Pattern "[0, 0, 0]" represents no object present to detect.
 
 """
 
