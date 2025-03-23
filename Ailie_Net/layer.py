@@ -82,7 +82,8 @@ class Dense:
         """
         self.inputs = input_in
         self.weighted_sum = np.dot(self.weight, self.inputs) + self.bias
-        self.outputs = relu(self.weighted_sum)
+        # self.outputs = relu(self.weighted_sum)
+        self.outputs = self.weighted_sum
         return self.outputs
 
     def back_stat(self) -> None:
@@ -104,7 +105,7 @@ class Dense:
         """
         self.dcost_dweight = np.ones((self.neurons, self.input_size))
 
-        self.dcost_dlayer = layer_error
+        self.dcost_dlayer = layer_error # * relu_prime(self.outputs)
         for i in range(0, self.neurons):
             #self.dcost_dweight[i] = self.inputs * layer_error[i]
             self.dcost_dweight[i] = np.dot(self.inputs, layer_error[i])
@@ -117,3 +118,53 @@ class Dense:
     def update(self, alpha: float) -> None:
         self.weight = self.weight - (alpha * self.dcost_dweight)
         self.bias = self.bias - (alpha * self.dcost_dbias)
+
+
+class Sigmoid_Layer:
+
+    # def __init__(self):
+    def forward(self, input_in: np.ndarray) -> np.ndarray:
+        """ Forward propagates the input through the Neural Layer
+        :param input_in: The input matrix provided to the entire layer
+        :type: input_in: np.ndarray
+
+        :var self.inputs: 1D Matrix to store provided layer input values
+        :var self.weighted_sum: 1D Matrix to store results of weighted sum computation
+        :var self.outputs: 1D Matrix to return the layers result post activation function
+        """
+        self.inputs = input_in
+        self.outputs = sigmoid(self.inputs)
+        return self.outputs
+
+
+    def backward(self, layer_error):
+        return sigmoid_prime(self.inputs) * layer_error
+
+    def update(self, alpha: float) -> None:
+        # Nothing to change in this layer
+        pass
+
+
+class ReLU_Layer:
+
+    # def __init__(self):
+    def forward(self, input_in: np.ndarray) -> np.ndarray:
+        """ Forward propagates the input through the Neural Layer
+        :param input_in: The input matrix provided to the entire layer
+        :type: input_in: np.ndarray
+
+        :var self.inputs: 1D Matrix to store provided layer input values
+        :var self.weighted_sum: 1D Matrix to store results of weighted sum computation
+        :var self.outputs: 1D Matrix to return the layers result post activation function
+        """
+        self.inputs = input_in
+        self.outputs = relu(self.inputs)
+        return self.outputs
+
+
+    def backward(self, layer_error):
+        return relu_prime(self.inputs) * layer_error
+
+    def update(self, alpha: float) -> None:
+        # Nothing to change in this layer
+        pass

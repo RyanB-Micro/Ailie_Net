@@ -12,7 +12,7 @@ class AilieNet():
             self.prediction_buf = layer.forward(self.input_buf)
             self.input_buf = self.prediction_buf
         # final activation
-        #self.prediction_buf = sigmoid(self.prediction_buf)
+        # self.prediction_buf = sigmoid(self.input_buf)
         return self.prediction_buf
 
     def backward(self, error, learn_rate):

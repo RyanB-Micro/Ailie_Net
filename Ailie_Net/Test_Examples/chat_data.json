@@ -46,9 +46,15 @@
     },
 
     {"exp": "10",
-      "input" : "Whats your name",
+      "input" : "What's your name",
       "response" : "My name is Chatty"
+    },
+
+    {"exp": "11",
+      "input" : "Bye",
+      "response" : "Bye!"
     }
+
   ]
 
 }

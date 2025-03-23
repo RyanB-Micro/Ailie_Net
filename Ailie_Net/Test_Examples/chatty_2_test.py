@@ -7,7 +7,7 @@ import test_utils as tu
 
 # Importing included Ailey_Net package
 from Ailie_Net import *
-
+from Ailie_Net.layer import Sigmoid_Layer, ReLU_Layer
 
 """ USER TUNABLE PARAMETERS
 epochs: The chosen number of training iterations to fit the Neural Net (Recommended: 100)
@@ -39,14 +39,21 @@ print(f"\ntraining targets {training_targets}")
 input_size = len(training_data[0])
 output_size = len(training_targets[0])
 layer0 = Dense(8, input_size)
+activ0 = Sigmoid_Layer()
 layer1 = Dense(8, 8)
+#activ1 = ReLU_Layer()
+activ1 = Sigmoid_Layer()
 layer2 = Dense(output_size, 8)
+activ2 = Sigmoid_Layer()
 
 # Creating the Neural Network
 neuralNet = AilieNet()
 neuralNet.add(layer0)
+neuralNet.add(activ0)
 neuralNet.add(layer1)
+neuralNet.add(activ1)
 neuralNet.add(layer2)
+neuralNet.add(activ2)
 
 # Prompting the user to begin training
 input("\n\tTHE COMPUTER IS READY TO TRAIN... (Press Return to Continue)\n")
