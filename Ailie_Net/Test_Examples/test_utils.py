@@ -14,13 +14,15 @@ def train_network(network, inputs, targets, epochs, learn_rate, error_log):
         epoch_error = 0
         for sample, target in zip(inputs, targets):
             prediction = network.forward(sample)
-            print("Prediction: ", prediction)
-            print("Target: ", target)
+
             error = ai.cost(prediction, target)
             epoch_error += error
             deriv_error = ai.cost_prime(prediction, target)
             back_error = network.backward(deriv_error, learn_rate)
-            print("Error: ", error)
+            if (itt % 10 == 0):
+                print("Prediction: ", prediction)
+                print("Target: ", target)
+                print("Error: ", error)
 
         error_log.append(epoch_error)
 
@@ -39,6 +41,29 @@ def plot_history(error_log, ledgend_categories):
     # Display the graph
     plt.show()
 
+
+def simple_hot(inputs, categories):
+    encoding_buff = np.zeros((len(inputs), len(categories)))
+
+    for index, sample in enumerate(inputs, start=0):
+        for position, cat in enumerate(categories, start=0):
+            if sample == cat:
+                encoding_buff[index][position] = 1
+
+    return encoding_buff
+
+def hot_decode(input, categories):
+    decoding = np.zeros(len(categories))
+
+    for position, cat in enumerate(categories, start=0):
+        if input == cat:
+            decoding[position] = 1
+
+    return decoding
+    #return "Error: Not category match found"
+
+
+
 def input_encoder(input_phrase, vocab):
     split_text = input_phrase.split()
 
@@ -56,7 +81,7 @@ def output_decoder(phrasebook_encoding, phrasebook):
     chosen_phrase = np.argmax(phrasebook_encoding)
 
     # Double check the output value is above a strength threshold
-    if phrasebook_encoding[chosen_phrase] > 0.7:
+    if phrasebook_encoding[chosen_phrase] > 0.6:
         return phrasebook[chosen_phrase]
     else: # No single output was strong enough
         return "Sorry, i do not understand."

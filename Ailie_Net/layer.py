@@ -80,9 +80,9 @@ class Dense:
         :var self.weighted_sum: 1D Matrix to store results of weighted sum computation
         :var self.outputs: 1D Matrix to return the layers result post activation function
         """
-        self.inputs = input_in
+        self.inputs = np.array(input_in)
         self.weighted_sum = np.dot(self.weight, self.inputs) + self.bias
-        # self.outputs = relu(self.weighted_sum)
+        #self.outputs = relu(self.weighted_sum)
         self.outputs = self.weighted_sum
         return self.outputs
 
@@ -103,16 +103,23 @@ class Dense:
 
         :return: Returns the calculated errors attributed to the previous layer.
         """
-        self.dcost_dweight = np.ones((self.neurons, self.input_size))
+        #self.dcost_dweight = np.ones((self.neurons, self.input_size))
 
-        self.dcost_dlayer = layer_error # * relu_prime(self.outputs)
-        for i in range(0, self.neurons):
+        self.dcost_dlayer = np.array(layer_error) # * relu_prime(self.outputs)
+
+        #for i in range(0, self.neurons):
             #self.dcost_dweight[i] = self.inputs * layer_error[i]
-            self.dcost_dweight[i] = np.dot(self.inputs, layer_error[i])
+            #self.dcost_dweight[i] = np.dot(self.inputs, layer_error[i])
+
+        dcost_dlayer = self.dcost_dlayer.reshape(len(self.dcost_dlayer), 1)
+        inputs = self.inputs.reshape(len(self.inputs), 1)
+        self.dcost_dweight = np.dot(dcost_dlayer, inputs.T)
+
         # self.dcost_dweight = self.inputs.dot(layer_error)
-        self.dcost_dbias = layer_error * 1
-        # self.dcost_dinput = self.weight.T * layer_error
-        self.dcost_dinput = self.weight.T.dot(layer_error)
+        self.dcost_dbias = self.dcost_dlayer * 1
+        #self.dcost_dinput = self.weight.T * layer_error
+        self.dcost_dinput = np.dot(self.weight.T, self.dcost_dlayer)
+        self.dcost_dinput = self.dcost_dinput.flatten()
         return self.dcost_dinput
 
     def update(self, alpha: float) -> None:
@@ -139,6 +146,7 @@ class Sigmoid_Layer:
 
     def backward(self, layer_error):
         return sigmoid_prime(self.inputs) * layer_error
+        #return np.dot(sigmoid_prime(self.inputs), layer_error)
 
     def update(self, alpha: float) -> None:
         # Nothing to change in this layer
@@ -163,8 +171,12 @@ class ReLU_Layer:
 
 
     def backward(self, layer_error):
+        # return relu_prime(self.inputs) * layer_error
         return relu_prime(self.inputs) * layer_error
+        #return np.dot(relu_prime(self.inputs), layer_error)
 
     def update(self, alpha: float) -> None:
         # Nothing to change in this layer
         pass
+
+

@@ -7,14 +7,14 @@ import test_utils as tu
 
 # Importing included Ailey_Net package
 from Ailie_Net import *
-from Ailie_Net.layer import Sigmoid_Layer, ReLU_Layer
+from Ailie_Net.layer import Dense, Sigmoid_Layer, ReLU_Layer
 
 """ USER TUNABLE PARAMETERS
 epochs: The chosen number of training iterations to fit the Neural Net (Recommended: 100)
 learn_rate: The size of the step size within each training iteration (Typically 0.01 -> 0.001)
 chat_data_file: The file with prompt-response examples to train the model.
 """
-epochs = 400
+epochs = 500
 learn_rate = 0.01
 chat_data_file = "chat_data.json"
 
@@ -38,12 +38,11 @@ print(f"\ntraining targets {training_targets}")
 # Creating the Neural Layers
 input_size = len(training_data[0])
 output_size = len(training_targets[0])
-layer0 = Dense(8, input_size)
-activ0 = Sigmoid_Layer()
-layer1 = Dense(8, 8)
-#activ1 = ReLU_Layer()
-activ1 = Sigmoid_Layer()
-layer2 = Dense(output_size, 8)
+layer0 = Dense(16, input_size)
+activ0 = ReLU_Layer()
+layer1 = Dense(16, 16)
+activ1 = ReLU_Layer()
+layer2 = Dense(output_size, 16)
 activ2 = Sigmoid_Layer()
 
 # Creating the Neural Network
