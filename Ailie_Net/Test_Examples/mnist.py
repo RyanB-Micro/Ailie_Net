@@ -12,9 +12,11 @@ import test_utils as tu
 from Ailie_Net import *
 from Ailie_Net.layer import Dense, Sigmoid_Layer, ReLU_Layer
 
-epochs = 30
+
+
+epochs = 100
 learn_rate = 0.01
-image_data_file = 'C:/Users/*****/Desktop/mnist_train.csv'
+image_data_file = 'C:/Users/Beds-/Desktop/mnist_train.csv'
 
 
 training_labels = []
@@ -29,7 +31,7 @@ data = pd.read_csv(image_data_file)
 data = np.array(data)
 m, n = data.shape
 
-training_samples = data[0:1200]
+training_samples = data[0:1000]
 
 
 print("\nSTATUS: Building Dataset")
@@ -56,11 +58,11 @@ print(f"Label Encoding: {tu.hot_decode(data_labels[0], label_categories)}")
 # Creating the Neural Layers
 input_size = 784 # amount of pixels in the images
 output_size = 10 # ten characters categories to choose from
-layer0 = Dense(256, input_size)
+layer0 = Dense(784, input_size)
 activ0 = Sigmoid_Layer()
-layer1 = Dense(128, 256)
+layer1 = Dense(256, 784)
 activ1 = Sigmoid_Layer()
-layer2 = Dense(output_size, 128)
+layer2 = Dense(output_size, 256)
 activ2 = Sigmoid_Layer()
 
 # Creating the Neural Network

@@ -1,3 +1,4 @@
+import sys
 
 # Importing external library for graph capabilities
 import matplotlib.pyplot as plt
@@ -12,6 +13,8 @@ def train_network(network, inputs, targets, epochs, learn_rate, error_log):
     for itt in range(0, epochs):
         print("\nIteration: ", itt)
         epoch_error = 0
+        sample_count = 0
+        progress = []
         for sample, target in zip(inputs, targets):
             prediction = network.forward(sample)
 
@@ -19,10 +22,16 @@ def train_network(network, inputs, targets, epochs, learn_rate, error_log):
             epoch_error += error
             deriv_error = ai.cost_prime(prediction, target)
             back_error = network.backward(deriv_error, learn_rate)
-            if (itt % 10 == 0):
-                print("Prediction: ", prediction)
-                print("Target: ", target)
-                print("Error: ", error)
+            # if (itt % 10 == 0):
+            #     print("Prediction: ", prediction)
+            #     print("Target: ", target)
+            #     print("Error: ", error)
+            #else:
+            sys.stdout.write(f"\rProgress: {progress} {sample_count}/{len(inputs)}")
+            sys.stdout.flush()
+
+            sample_count += 1
+            progress = '#' * int(sample_count/100)
 
         error_log.append(epoch_error)
 
