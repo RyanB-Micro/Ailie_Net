@@ -1,5 +1,5 @@
 # Ailie_Net
-Ailie Net - A simplistic Python Neural Networks module, designed for beginners exploring AI from scratch.
+Ailie Net - A simplistic Python Neural Networks module, designed for beginners intending to explor AI from scratch.
 
 This module is produced primarily on vanilla Python code, where external dependencies are kept to a bare minimum.
 This vanilla-based approach is intended to increase compatibility with systems of varying Python version, operating systems, and architectures.
@@ -39,18 +39,20 @@ Neural Networks Mathematics\
 [13] The Organic Chemistry Tutor, Understand Calculus in 35 Minutes, (Sep. 10, 2018). Accessed: Mar. 10, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=WsQQvHm4lSw
 
 AI Coding in Python\
-[1] First Principles of Computer Vision, Backpropagation Algorithm | Neural Networks, (Jun. 10, 2021). Accessed: Mar. 14, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=sIX_9n-1UbM
-[2] DeepBean, Backpropagation: How Neural Networks Learn, (Feb. 27, 2023). Accessed: Mar. 15, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=fGDT63dZcvE
-[3] Samson Zhang, Building a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy & math), (Nov. 24, 2020). Accessed: Mar. 12, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=w8yWXqWQYmU
-[4] J. Portilla, ‘Complete Tensorflow 2 and Keras Deep Learning Bootcamp’, Udemy. Accessed: Feb. 17, 2025. [Online]. Available: https://www.udemy.com/course/complete-tensorflow-2-and-keras-deep-learning-bootcamp/
-[5] Python Simplified, Gradient Descent - Simply Explained! ML for beginners with Code Example!, (Aug. 09, 2021). Accessed: Mar. 13, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=jwStsp8JUPU
-[6] NeuralNine, Gradient Descent From Scratch in Python - Visual Explanation, (Apr. 18, 2023). Accessed: Mar. 14, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=gsfbWn4Gy5Q
-[7] Sebastian Lague, How to Create a Neural Network (and Train it to Identify Doodles), (Aug. 12, 2022). Accessed: Mar. 14, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=hfMk-kjRv4c
-[8] D. Dato-On, ‘MNIST in CSV’, Kaggle.com. Accessed: Mar. 13, 2025. [Online]. Available: https://www.kaggle.com/datasets/oddrationale/mnist-in-csv
-[9] The Independent Code, Neural Network from Scratch | Mathematics & Python Code, (Jan. 13, 2021). Accessed: Mar. 14, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=pauPCy_s0Ok
-[10] Vizuara, Neural Network From Scratch: No Pytorch & Tensorflow; just pure math | 30 min theory + 30 min coding, (Dec. 27, 2024). Accessed: Mar. 14, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=A83BbHFoKb8
-[11] M. A. Nielsen, ‘Neural Networks and Deep Learning’, 2015, Accessed: Mar. 14, 2025. [Online]. Available: http://neuralnetworksanddeeplearning.com
-[12] Python Simplified, Perceptron Algorithm with Code Example - ML for beginners!, (Jun. 03, 2021). Accessed: Mar. 13, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=-KLnurhX-Pg
+[1] The Coding Train, 10.4: Neural Networks: Multilayer Perceptron Part 1 - The Nature of Code, (Jun. 27, 2017). Accessed: Mar. 27, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=u5GAVdLQyIg
+[2] First Principles of Computer Vision, Backpropagation Algorithm | Neural Networks, (Jun. 10, 2021). Accessed: Mar. 14, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=sIX_9n-1UbM
+[3] DeepBean, Backpropagation: How Neural Networks Learn, (Feb. 27, 2023). Accessed: Mar. 15, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=fGDT63dZcvE
+[4] Samson Zhang, Building a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy & math), (Nov. 24, 2020). Accessed: Mar. 12, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=w8yWXqWQYmU
+[5] J. Portilla, ‘Complete Tensorflow 2 and Keras Deep Learning Bootcamp’, Udemy. Accessed: Feb. 17, 2025. [Online]. Available: https://www.udemy.com/course/complete-tensorflow-2-and-keras-deep-learning-bootcamp/
+[6] Python Simplified, Gradient Descent - Simply Explained! ML for beginners with Code Example!, (Aug. 09, 2021). Accessed: Mar. 13, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=jwStsp8JUPU
+[7] NeuralNine, Gradient Descent From Scratch in Python - Visual Explanation, (Apr. 18, 2023). Accessed: Mar. 14, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=gsfbWn4Gy5Q
+[8] Sebastian Lague, How to Create a Neural Network (and Train it to Identify Doodles), (Aug. 12, 2022). Accessed: Mar. 14, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=hfMk-kjRv4c
+[9] D. Dato-On, ‘MNIST in CSV’, Kaggle.com. Accessed: Mar. 13, 2025. [Online]. Available: https://www.kaggle.com/datasets/oddrationale/mnist-in-csv
+[10] The Independent Code, Neural Network from Scratch | Mathematics & Python Code, (Jan. 13, 2021). Accessed: Mar. 14, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=pauPCy_s0Ok
+[11] Vizuara, Neural Network From Scratch: No Pytorch & Tensorflow; just pure math | 30 min theory + 30 min coding, (Dec. 27, 2024). Accessed: Mar. 14, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=A83BbHFoKb8
+[12] M. A. Nielsen, ‘Neural Networks and Deep Learning’, 2015, Accessed: Mar. 14, 2025. [Online]. Available: http://neuralnetworksanddeeplearning.com
+[13] Python Simplified, Perceptron Algorithm with Code Example - ML for beginners!, (Jun. 03, 2021). Accessed: Mar. 13, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=-KLnurhX-Pg
+[14] The Independent Code, Softmax Layer from Scratch | Mathematics & Python Code, (Nov. 16, 2021). Accessed: Mar. 28, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=AbLvJVwySEo
 
 Chatbot AI\
 [1] freeCodeCamp.org, Create a Large Language Model from Scratch with Python – Tutorial, (Aug. 25, 2023). Accessed: Mar. 07, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=UU1WVnMk4E8
@@ -60,8 +62,18 @@ Speech Recognition\
 [1] NeuralNine, Speech Recognition in Python, (Mar. 28, 2021). Accessed: Mar. 09, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=9GJ6XeB-vMg
 
 Python Programming\
-[1] freeCodeCamp.org, Create a Large Language Model from Scratch with Python – Tutorial, (Aug. 25, 2023). Accessed: Mar. 07, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=UU1WVnMk4E8
-[2] Tech With Tim, Python Chat Bot Tutorial - Chatbot with Deep Learning (Part 1), (May 28, 2019). Accessed: Mar. 07, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=wypVcNIH6D4
+[1] Indently, 5 Good Python Practices, (Sep. 09, 2024). Accessed: Mar. 17, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=plXuoYYFS-Y
+[2] Travis Media, 5 Signs of an Inexperienced Self-Taught Developer (and how to fix), (Jan. 24, 2024). Accessed: Mar. 17, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=B_HR2R3xsnQ
+[3] Tech With Tim, 5 Tips To Organize Python Code, (Mar. 05, 2022). Accessed: Mar. 17, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=e9yMYdnSlUA
+[4] mCoding, 25 nooby Python habits you need to ditch, (Nov. 15, 2021). Accessed: Mar. 17, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=qUeud6DvOWI
+[5] J. Portilla, ‘Complete Tensorflow 2 and Keras Deep Learning Bootcamp’, Udemy. Accessed: Feb. 17, 2025. [Online]. Available: https://www.udemy.com/course/complete-tensorflow-2-and-keras-deep-learning-bootcamp/
+[6] Python Simplified, Create Your Own Python PIP Package, (Jan. 03, 2025). Accessed: Mar. 17, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=9Ii34WheBOA
+[7] LeMaster Tech, How to Connect and Control an Arduino From Python!, (Nov. 30, 2023). Accessed: Mar. 10, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=UeybhVFqoeg
+[8] NeuralNine, Importing Your Own Python Modules Properly, (Jul. 06, 2022). Accessed: Mar. 17, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=GxCXiSkm6no
+[9] Socratica, JSON in Python  ||  Python Tutorial  ||  Learn Python Programming, (Aug. 11, 2017). Accessed: Mar. 19, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=pTT7HMqDnJw
+[10] ‘Loading a JSON File in Python – How to Read and Parse JSON’, freeCodeCamp.org. Accessed: Mar. 19, 2025. [Online]. Available: https://www.freecodecamp.org/news/loading-a-json-file-in-python-how-to-read-and-parse-json/
+[11] ‘Read JSON file using Python’, GeeksforGeeks. Accessed: Mar. 19, 2025. [Online]. Available: https://www.geeksforgeeks.org/read-json-file-using-python/
+[12] Tech With Tim, Write Python Code Properly!, (Aug. 24, 2021). Accessed: Mar. 17, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=D4_s3q038I0
 
 
 
