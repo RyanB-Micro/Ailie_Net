@@ -18,7 +18,7 @@ learn_rate: The size of the step size within each training iteration (Typically 
 image_data_file: The file containing the labeled image data for training purposes.
 image_test_file: The file containing the labeled image data for testing purposes.
 """
-epochs = 40
+epochs = 5
 learn_rate = 0.01
 image_data_file = 'C:/Users/Beds-/Desktop/mnist_train.csv'
 image_test_file = 'C:/Users/Beds-/Desktop/mnist_train.csv'
@@ -124,8 +124,8 @@ if first_label != first_decoded:
 # If there is a non match, then there is a compatibility issue between the dataset formating and the data loading.
 print("\nVisual Match Test - The displayed image should visually match the label.")
 print("(Close Plot Window to Continue)")
-plt.imshow(training_data[0].reshape((28,28)), cmap='gray')
-plt.show()
+#plt.imshow(training_data[0].reshape((28,28)), cmap='gray')
+#plt.show()
 
 
 """ Building the Model """
@@ -176,7 +176,7 @@ if user_choice(['Y', 'y', 'N', 'n'], ['Y', 'y'], user_prompt):
 user_prompt = "\n\tTest Network against test data? (Y, n)"
 if user_choice(['Y', 'y', 'N', 'n'], ['Y', 'y'], user_prompt):
     # Make predictions of the classifications of the testing data
-    test_log = tu.test_predictions(neuralNet, testing_data, testing_labels, test_log, 'Cross')
+    test_log= tu.test_predictions(neuralNet, testing_data, testing_labels, test_log, 'Cross')
 
     # Plot the error of the known test dataset labels against the predictions
     tu.plot_history(test_log, label_categories, "MNIST Testing - Classification Error")
@@ -187,14 +187,14 @@ if user_choice(['Y', 'y', 'N', 'n'], ['Y', 'y'], user_prompt):
         # Acquire test sample data and label
         test_data = testing_data[i]
         test_label = test_labels[i]
-        print(f"\nTest Sample Label: {test_label}")
+        #print(f"\nTest Sample Label: {test_label}")
 
         # Generate a predicted label from the data
         prediction = neuralNet.forward(test_data)
 
         # Decode and display the prediction into a human-readable format
         decoded_prediction = tu.hot_decode(prediction, label_categories)
-        print(f"Predicted Label: {decoded_prediction}")
+        #print(f"Predicted Label: {decoded_prediction}")
 
         # Store the results into the dictionary
         test_results["Sample Label"].append(test_label)
@@ -204,3 +204,20 @@ if user_choice(['Y', 'y', 'N', 'n'], ['Y', 'y'], user_prompt):
     table = pd.DataFrame(test_results)
     # Display the results in an organised table format
     print(table)
+
+    worse_log = tu.find_worse(testing_data, test_labels, test_log)
+    for log_index, worse in enumerate(worse_log):
+        plt.subplot(2, 2, log_index+1)
+        plt.imshow(worse_log[log_index][0].reshape((28, 28)), cmap='gray')
+        plt.axis('off')
+        title = "Label:"
+        title += str(worse[1])
+        #title += " Error:"
+        #title += str(worse[2])
+        prediction = neuralNet.forward(worse[0])
+        decoded_prediction = tu.hot_decode(prediction, label_categories)
+        title += " Prediction:"
+        title += str(decoded_prediction)
+        plt.title(title)
+    plt.show()
+

@@ -82,6 +82,41 @@ def test_predictions(network, test_data, test_labels, test_log, error_func):
     return test_log
 
 
+def find_worse(test_data, test_labels, test_log):
+    # Holds 4 worse results, 0th: worse -> 3rd: lesser
+    # Stored in the format [data, label, error]
+    worse_buf = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+
+    # Search through error log, and extract dataset samples which resulted in the largest errors
+    for data, label, error in zip(test_data, test_labels, test_log):
+        # check if error larger than last entry (if not, won't be larger than the others)
+        max_error = sum(error)
+        #print(f"max: {max_error}")
+        if max_error > worse_buf[3][2]:
+            # check through each entry
+            for i in range(0, 3):
+            #for i, worse in enumerate(worse_buf):
+                # if error is larger, skip
+                #print(f"i: {i}")
+                #print(f"worse: {worse_buf[i][2]}")
+                #print(f"worse buff: {worse_buf}")
+                if (max_error > worse_buf[i][2]) and (i != 2):
+                    # skip to check next largest
+                    pass
+                elif (max_error > worse_buf[i][2]) and (i == 2):
+                    worse_buf[i][0] = data
+                    worse_buf[i][1] = label
+                    worse_buf[i][2] = max_error
+                else:
+                    worse_buf[i-1][0] = data
+                    worse_buf[i-1][1] = label
+                    worse_buf[i-1][2] = max_error
+
+                #print(f"Worse Buff {worse_buf}")
+
+    return worse_buf
+
+
 def plot_history(error_log, ledgend_categories, plot_title):
     # Display instructions
     print("\n\tTHE PLOT IS BEING DISPLAYED... (Close Plot Window to Continue)")
