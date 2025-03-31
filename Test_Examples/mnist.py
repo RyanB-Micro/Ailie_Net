@@ -103,7 +103,7 @@ neuralNet.add(activ2)
 
 # Prompting the user to begin training
 input("\n\tTHE COMPUTER IS READY TO TRAIN... (Press Return to Continue)\n")
-tu.train_network(neuralNet, training_data, training_labels, epochs, learn_rate, error_log, 'MSE')
+tu.train_network(neuralNet, training_data, training_labels, epochs, learn_rate, error_log, 'Cross')
 
 # Prompting the uer to choose to whether plot is shown
 user_prompt = "\n\tDisplay Plot for Error History? (Y, n)"
@@ -114,7 +114,7 @@ if user_choice(['Y', 'y', 'N', 'n'], ['Y', 'y'], user_prompt):
 test_log = []
 user_prompt = "\n\tTest Network against test data? (Y, n)"
 if user_choice(['Y', 'y', 'N', 'n'], ['Y', 'y'], user_prompt):
-    test_log = tu.test_predictions(neuralNet, testing_data, testing_labels, test_log, 'MSE')
+    test_log = tu.test_predictions(neuralNet, testing_data, testing_labels, test_log, 'Cross')
 
     tu.plot_history(test_log, label_categories, "MNIST Testing - Classification Error")
 

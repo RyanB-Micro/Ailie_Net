@@ -1,5 +1,12 @@
 # Ailie_Net
-Neural Network Experiments - Developing Ailie AI
+Ailie Net - A simplistic Python Neural Networks module, designed for beginners exploring AI from scratch.
+
+This module is produced primarily on vanilla Python code, where external dependencies are kept to a bare minimum.
+This vanilla-based approach is intended to increase compatibility with systems of varying Python version, operating systems, and architectures.
+
+The only internal dependency of a third party library is that of NumPy, an extremely useful and flexible maths library at the heart of most Python projects.
+Additional modules, such as those included with the test examples, include Matplotlib (data visualisation), Pandas (data managing), JSON (using JSON data files) and sys (for system commands).
+
 
 
 # Bibliography
