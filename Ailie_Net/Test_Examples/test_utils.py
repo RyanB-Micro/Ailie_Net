@@ -9,39 +9,86 @@ import json
 
 import Ailie_Net as ai
 
-def train_network(network, inputs, targets, epochs, learn_rate, error_log):
+def train_network(network, inputs, targets, epochs, learn_rate, error_log, error_func):
     for itt in range(0, epochs):
-        print("\nIteration: ", itt)
+        print(f"\nIteration: {itt}/{epochs}")
+
         epoch_error = 0
         sample_count = 0
         progress = []
+
         for sample, target in zip(inputs, targets):
             prediction = network.forward(sample)
 
-            error = ai.cost(prediction, target)
+            if error_func == 'MSE':
+                error = ai.squared_error(prediction, target)
+            elif error_func == 'Cross':
+                error = ai.cross_entropy_error(prediction, target)
+            # default if misspelled
+            else:
+                error = ai.squared_error(prediction, target)
+
             epoch_error += error
-            deriv_error = ai.cost_prime(prediction, target)
+            deriv_error = ai.squared_error_prime(prediction, target)
             back_error = network.backward(deriv_error, learn_rate)
+
             # if (itt % 10 == 0):
             #     print("Prediction: ", prediction)
             #     print("Target: ", target)
             #     print("Error: ", error)
             #else:
-            sys.stdout.write(f"\rProgress: {progress} {sample_count}/{len(inputs)}")
-            sys.stdout.flush()
+            progress = int((sample_count / len(inputs)) * 100)
+            progress_bar = '#' * int(progress/10)
+
+            if (sample_count % 10 == 0):
+                #sys.stdout.write(f"\rProgress: {progress} {sample_count}/{len(inputs)}%")
+                sys.stdout.write(f"\rProgress: {progress_bar} {progress}%")
+                sys.stdout.flush()
 
             sample_count += 1
-            progress = '#' * int(sample_count/100)
 
+        print(f"\nEpoch Error: {epoch_error}")
         error_log.append(epoch_error)
 
-def plot_history(error_log, ledgend_categories):
+
+def test_predictions(network, test_data, test_labels, test_log, error_func):
+    total_error = 0
+    sample_count = 0
+    progress = []
+    test_log = []
+
+    for sample, target in zip(test_data, test_labels):
+        prediction = network.forward(sample)
+        if error_func == 'MSE':
+            error = ai.squared_error(prediction, target)
+        elif error_func == 'Cross':
+            error = ai.cross_entropy_error(prediction, target)
+        # default if misspelled
+        else:
+            error = ai.squared_error(prediction, target)
+
+        #total_error += error
+        progress = int((sample_count / len(test_data)) * 100)
+        progress_bar = '#' * int(progress / 10)
+
+        if (sample_count % 10 == 0):
+            # sys.stdout.write(f"\rProgress: {progress} {sample_count}/{len(inputs)}%")
+            sys.stdout.write(f"\rTesting Progress: {progress_bar} {progress}%")
+            sys.stdout.flush()
+
+        sample_count += 1
+
+        test_log.append(error)
+    return test_log
+
+
+def plot_history(error_log, ledgend_categories, plot_title):
     # Display instructions
     print("\n\tTHE PLOT IS BEING DISPLAYED... (Close Plot Window to Continue)")
     # Add the error scores to be plotted to the graph
     plt.plot(error_log)
     # Add a title to the graph
-    plt.title("Vocab Test - Training Error Over Time")
+    plt.title(plot_title)
     # Add labels to the axis of the graph
     plt.xlabel("Number of Epochs")
     plt.ylabel("Error Value")
@@ -61,15 +108,30 @@ def simple_hot(inputs, categories):
 
     return encoding_buff
 
-def hot_decode(input, categories):
-    decoding = np.zeros(len(categories))
 
-    for position, cat in enumerate(categories, start=0):
-        if input == cat:
-            decoding[position] = 1
+def hot_decode(input, categories):
+    #decoding = np.zeros(len(categories))
+    decoding = "Unknown"
+
+    #for value in input:
+        #for position, cat in enumerate(categories, start=0):
+        #print(f"Val: {value}")
+        # for cat in categories:
+        #     print(f"Cat: {cat}")
+        #     if value == True:
+        #         decoding = cat
+
+
+    # for value, cat in zip(input, categories):
+    #     if value == 1:
+    #         decoding = cat
+
+    index = np.argmax(input)
+    #print("index", index)
+    decoding = categories[index]
+    #print("decoding", decoding)
 
     return decoding
-    #return "Error: Not category match found"
 
 
 

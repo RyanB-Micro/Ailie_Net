@@ -56,12 +56,12 @@ neuralNet.add(activ2)
 
 # Prompting the user to begin training
 input("\n\tTHE COMPUTER IS READY TO TRAIN... (Press Return to Continue)\n")
-tu.train_network(neuralNet, training_data, training_targets, epochs, learn_rate, error_log)
+tu.train_network(neuralNet, training_data, training_targets, epochs, learn_rate, error_log, 'Cross')
 
 # Prompting the uer to choose to whether plot is shown
 user_prompt = "\n\tDisplay Plot for Error History? (Y, n)"
 if user_choice(['Y', 'y', 'N', 'n'], ['Y', 'y'], user_prompt):
-    tu.plot_history(error_log, phrasebook)
+    tu.plot_history(error_log, phrasebook, "Vocab Test - Training Error Over Time")
 
 # Prompting the user to begin chatting
 input("\n\tTHE COMPUTER IS READY TO CHAT... (Press Return to Continue)\n")
