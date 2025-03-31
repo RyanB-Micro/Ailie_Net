@@ -1,5 +1,5 @@
 import Ailie_Net
-# import math
+
 import numpy as np
 
 #def cost(prediction, target):
