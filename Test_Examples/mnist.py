@@ -65,8 +65,10 @@ print(f"Available Testing Samples: {test_dataset.shape}")
 
 # Portion the datasets into smaller subsets
 # This will trade overall accuracy with less overhead for faster training speeds
+np.random.shuffle(train_dataset)
+np.random.shuffle(test_dataset)
 training_samples = train_dataset[0:1000]
-testing_samples = test_dataset[0:1000]
+testing_samples = test_dataset[0:2000]
 
 # Display the sizes of the portioned datasets
 print(f"\nTraining Data Size: {training_samples.shape}")
@@ -140,9 +142,9 @@ print("\nBuilding Neural Network Layers")
 # Creating the individual Neural and activation Layers
 layer0 = Dense(512, input_size)
 activ0 = Sigmoid_Layer()
-layer1 = Dense(128, 512)
+layer1 = Dense(256, 512)
 activ1 = Sigmoid_Layer()
-layer2 = Dense(32, 128)
+layer2 = Dense(32, 256)
 activ2 = Sigmoid_Layer()
 layer3 = Dense(output_size, 32)
 activ3 = Sigmoid_Layer()
@@ -166,7 +168,7 @@ neuralNet.add(activ3)
 # Prompting the user to begin training
 input("\n\tTHE COMPUTER IS READY TO TRAIN... (Press Return to Continue)\n")
 # Uses a custom function to train the network by providing data, targets, and training parameters
-tu.train_network(neuralNet, training_data, training_labels, epochs, learn_rate, error_log, 'Cross')
+tu.train_network(neuralNet, training_data, training_labels, epochs, learn_rate, error_log, 'MSE')
 
 # Prompting the uer to choose to whether the training plot is shown
 user_prompt = "\n\tDisplay Plot for Error History? (Y, n)"
@@ -181,7 +183,7 @@ if user_choice(['Y', 'y', 'N', 'n'], ['Y', 'y'], user_prompt):
 user_prompt = "\n\tTest Network against test data? (Y, n)"
 if user_choice(['Y', 'y', 'N', 'n'], ['Y', 'y'], user_prompt):
     # Make predictions of the classifications of the testing data
-    test_log= tu.test_predictions(neuralNet, testing_data, testing_labels, test_log, 'Cross')
+    test_log= tu.test_predictions(neuralNet, testing_data, testing_labels, test_log, 'MSE')
 
     # Plot the error of the known test dataset labels against the predictions
     tu.plot_history(test_log, label_categories, "MNIST Testing - Classification Error")
