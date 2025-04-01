@@ -18,7 +18,8 @@ learn_rate: The size of the step size within each training iteration (Typically 
 image_data_file: The file containing the labeled image data for training purposes.
 image_test_file: The file containing the labeled image data for testing purposes.
 """
-epochs = 5
+
+epochs = 100
 learn_rate = 0.01
 image_data_file = 'C:/Users/Beds-/Desktop/mnist_train.csv'
 image_test_file = 'C:/Users/Beds-/Desktop/mnist_train.csv'
@@ -139,10 +140,12 @@ print("\nBuilding Neural Network Layers")
 # Creating the individual Neural and activation Layers
 layer0 = Dense(512, input_size)
 activ0 = Sigmoid_Layer()
-layer1 = Dense(64, 512)
+layer1 = Dense(128, 512)
 activ1 = Sigmoid_Layer()
-layer2 = Dense(output_size, 64)
+layer2 = Dense(32, 128)
 activ2 = Sigmoid_Layer()
+layer3 = Dense(output_size, 32)
+activ3 = Sigmoid_Layer()
 
 print("\nBuilding Neural Network Architecture")
 # Creating the Neural Network by combining the layers
@@ -153,6 +156,8 @@ neuralNet.add(layer1)
 neuralNet.add(activ1)
 neuralNet.add(layer2)
 neuralNet.add(activ2)
+neuralNet.add(layer3)
+neuralNet.add(activ3)
 
 
 """ Training the Model """
@@ -208,7 +213,7 @@ if user_choice(['Y', 'y', 'N', 'n'], ['Y', 'y'], user_prompt):
     worse_log = tu.find_worse(testing_data, test_labels, test_log)
     for log_index, worse in enumerate(worse_log):
         plt.subplot(2, 2, log_index+1)
-        plt.imshow(worse_log[log_index][0].reshape((28, 28)), cmap='gray')
+        plt.imshow(worse[0].reshape((28, 28)), cmap='viridis')
         plt.axis('off')
         title = "Label:"
         title += str(worse[1])
@@ -219,5 +224,8 @@ if user_choice(['Y', 'y', 'N', 'n'], ['Y', 'y'], user_prompt):
         title += " Prediction:"
         title += str(decoded_prediction)
         plt.title(title)
+        error = "Error: "
+        error += str(worse[2])[:5]
+        plt.text(1, 2, error, color='white')
     plt.show()
 
