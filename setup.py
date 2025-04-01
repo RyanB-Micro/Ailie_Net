@@ -12,7 +12,9 @@ from setuptools import setup, find_packages
         
         First you need the tools to create a Python virtual environment. There are many popular options such as conda,
         venv (comes with versions of python) and virtualenv. To install virtualenv type the following into a prompt window:
-        pip install virtualenv
+            pip install virtualenv
+        or:
+            apt-get install virtualenv
         
         You now need a place to create your environment. You can do this by creating a new directory somewhere:
             cd Desktop
