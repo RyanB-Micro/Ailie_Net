@@ -41,10 +41,10 @@ from setuptools import setup, find_packages
         Enter the following into a python virtual environment:
             pip install setuptools wheel twine
         
-        pip:
-        setuptools:
-        wheel:
-        twine:
+        pip: A popular python package manager fpr installing new packages.
+        setuptools: A package development tool for building and distributing packages.
+        wheel: A format for distributing python modules in a ready to install approach.
+        twine: A tool for publishing python modules to the Python Package Index (PyPI) registry.
         
         
     Building the Package
@@ -79,6 +79,15 @@ from setuptools import setup, find_packages
         A new python terminal should now be created.
         You should now be able to import the Ailie_Net module using the following command:
             import Ailie_Net as ai
+            
+        If no error message is displayed, then the install is successful.
+        
+        The package also has a number of test scripts available. To run these the following dependencies
+        may be required:
+            pip install numpy
+            pip install pandas
+            pip install matplotlib
+            pip install json
 """
 
 
