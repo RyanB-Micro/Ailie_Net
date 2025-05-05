@@ -21,8 +21,8 @@ image_test_file: The file containing the labeled image data for testing purposes
 
 epochs = 100
 learn_rate = 0.01
-image_data_file = 'C:/Users/Beds-/Desktop/mnist_train.csv'
-image_test_file = 'C:/Users/Beds-/Desktop/mnist_train.csv'
+image_data_file = 'D:/mnist_train.csv'
+image_test_file = 'D:/mnist_train.csv'
 
 # Empty lists to for later storing separate training data and labels
 training_labels = []
@@ -144,9 +144,9 @@ layer0 = Dense(512, input_size)
 activ0 = Sigmoid_Layer()
 layer1 = Dense(256, 512)
 activ1 = Sigmoid_Layer()
-layer2 = Dense(32, 256)
+layer2 = Dense(64, 256)
 activ2 = Sigmoid_Layer()
-layer3 = Dense(output_size, 32)
+layer3 = Dense(output_size, 64)
 activ3 = Sigmoid_Layer()
 
 print("\nBuilding Neural Network Architecture")

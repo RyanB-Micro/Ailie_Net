@@ -48,9 +48,9 @@ def train_network(network: AilieNet, inputs, targets, error_log):
             prediction = network.forward(sample)
             print("Prediction: ", prediction)
             print("Target: ", target)
-            error = cost(prediction, target)
+            error = squared_error(prediction, target)
             epoch_error += error
-            deriv_error = cost_prime(prediction, target)
+            deriv_error = squared_error_prime(prediction, target)
             back_error = network.backward(deriv_error, learn_rate)
             print("Error: ", error)
 

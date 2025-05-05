@@ -86,13 +86,13 @@ for e in range(0, epochs):
         print(f"Prediction for pattern {pattern}: {prediction}")
 
         # Calculate error for prediction
-        error = cost(prediction, target)
+        error = squared_error(prediction, target)
         # Sum errors across epoch
         epoch_error += error
         print(f"Expected Result: {target}, Calculated Error: {error}")
 
         # Calculate the derivative for the error
-        deriv_error = cost_prime(prediction, target)
+        deriv_error = squared_error_prime(prediction, target)
         # Feed the error backwards through the network
         # This will automatically adjust parameters within the layer
         neuralNet.backward(deriv_error, learn_rate)

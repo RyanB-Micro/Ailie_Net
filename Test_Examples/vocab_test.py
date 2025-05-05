@@ -62,9 +62,9 @@ prediction = neuralNet.forward(inputs[0])
 print("Prediction ", prediction)
 #layer0.size()
 
-error = cost(prediction, targets[0])
+error = squared_error(prediction, targets[0])
 print("Error: ", error)
-deriv_error = cost_prime(prediction, targets[0])
+deriv_error = squared_error_prime(prediction, targets[0])
 print("Deriv Error: ", deriv_error)
 
 
@@ -75,9 +75,9 @@ for itt in range(0, epochs):
         prediction = neuralNet.forward(sample)
         print("Prediction: ", prediction)
         print("Target: ", target)
-        error = cost(prediction, target)
+        error = squared_error(prediction, target)
         epoch_error += error
-        deriv_error = cost_prime(prediction, target)
+        deriv_error = squared_error_prime(prediction, target)
         back_error = neuralNet.backward(deriv_error, learn_rate)
         print("Error: ", error)
 
