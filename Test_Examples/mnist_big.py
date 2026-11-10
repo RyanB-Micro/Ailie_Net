@@ -142,7 +142,7 @@ print("\nBuilding Neural Network Layers")
 # Creating the individual Neural and activation Layers
 layer0 = Dense(1024, input_size)
 activ0 = Sigmoid_Layer()
-layer1 = Dense(512, 1024)
+layer1 = Dense(1024, 1024)
 activ1 = Sigmoid_Layer()
 layer2 = Dense(512, 1024)
 activ2 = Sigmoid_Layer()
