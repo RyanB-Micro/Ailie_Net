@@ -140,17 +140,17 @@ output_size = 10 # ten characters categories to choose from
 
 print("\nBuilding Neural Network Layers")
 # Creating the individual Neural and activation Layers
-layer0 = Dense(1024, input_size)
+layer0 = Dense(512, input_size)
 activ0 = Sigmoid_Layer()
-layer1 = Dense(1024, 1024)
+layer1 = Dense(512, 512)
 activ1 = Sigmoid_Layer()
-layer2 = Dense(512, 1024)
+layer2 = Dense(256, 512)
 activ2 = Sigmoid_Layer()
-layer3 = Dense(128, 512)
+layer3 = Dense(128, 256)
 activ3 = Sigmoid_Layer()
-layer4 = Dense(32, 128)
+layer4 = Dense(64, 128)
 activ4 = Sigmoid_Layer()
-layer5 = Dense(output_size, 32)
+layer5 = Dense(output_size, 64)
 activ5 = Sigmoid_Layer()
 
 print("\nBuilding Neural Network Architecture")
