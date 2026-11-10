@@ -48,8 +48,8 @@ def train_network(network, inputs, targets, epochs, learn_rate, error_log, error
                 #sys.stdout.write(f"\rProgress: {progress} {sample_count}/{len(inputs)}%")
                 sys.stdout.write(
                     f"\rEpoch Progress: {epoch_progress_bar} {epoch_progress}%"
-                    f"\033[34m\nProgress: {train_progress_bar} {train_progress}%\033[0m"
-                    f"\033[2A" # Moves cursor back up a line
+                    f"\033[36m\nProgress: {train_progress_bar} {train_progress}%\033[0m"
+                    f"\033[F" # Moves cursor back up a line
                 )
                 sys.stdout.flush()
 
