@@ -162,7 +162,6 @@ class ReLU_Layer:
         :type: input_in: np.ndarray
 
         :var self.inputs: 1D Matrix to store provided layer input values
-        :var self.weighted_sum: 1D Matrix to store results of weighted sum computation
         :var self.outputs: 1D Matrix to return the layers result post activation function
         """
         self.inputs = input_in

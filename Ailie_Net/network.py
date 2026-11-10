@@ -6,6 +6,7 @@ class AilieNet():
     def __init__(self, ):
         self.layers = []
 
+
     def forward(self, input_in):
         self.input_buf = input_in
         for layer in self.layers:

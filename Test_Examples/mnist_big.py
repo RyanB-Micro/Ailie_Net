@@ -9,7 +9,7 @@ import test_utils as tu
 # Importing necessary Ailey_Net packages
 from Ailie_Net.network import AilieNet
 from Ailie_Net.utils import user_choice
-from Ailie_Net.layer import Dense, Sigmoid_Layer
+from Ailie_Net.layer import Dense, Sigmoid_Layer, ReLU_Layer
 
 
 """ USER TUNABLE PARAMETERS
@@ -19,10 +19,10 @@ image_data_file: The file containing the labeled image data for training purpose
 image_test_file: The file containing the labeled image data for testing purposes.
 """
 
-epochs = 100
-learn_rate = 0.01
+epochs = 10
+learn_rate = 0.005
 image_data_file = 'Datasets/mnist_train.csv'
-image_test_file = 'Datasets/mnist_train.csv'
+image_test_file = 'Datasets/mnist_test.csv'
 
 # Empty lists to for later storing separate training data and labels
 training_labels = []
@@ -53,7 +53,7 @@ label_categories = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 print("\nSTATUS: Reading Training Datafile")
 train_dataset = pd.read_csv(image_data_file)
 print("\nSTATUS: Reading Testing Datafile")
-test_dataset = pd.read_csv(image_data_file)
+test_dataset = pd.read_csv(image_test_file)
 
 # Convert the data into a numpy array for increased speed and functionality
 train_dataset = np.array(train_dataset)
@@ -65,6 +65,7 @@ print(f"Available Testing Samples: {test_dataset.shape}")
 
 # Portion the datasets into smaller subsets
 # This will trade overall accuracy with less overhead for faster training speeds
+np.random.seed(914)
 np.random.shuffle(train_dataset)
 np.random.shuffle(test_dataset)
 training_samples = train_dataset[0:1000]
@@ -83,14 +84,14 @@ print("\nSTATUS: Building Training Dataset")
 train_labels = []
 for sample in training_samples:
     train_labels.append(sample[0])
-    training_data.append(sample[1:])
+    training_data.append(sample[1:] / 255.0) # normalised (0 -> 255) to (0.0 -> 1.0)
 
 # Separate the training data and labels into Separate lists
 print("\nSTATUS: Building Testing Dataset")
 test_labels = []
 for sample in testing_samples:
     test_labels.append(sample[0])
-    testing_data.append(sample[1:])
+    testing_data.append(sample[1:] / 255.0) # normalised (0 -> 255) to (0.0 -> 1.0)
 
 # One-Hot encoding the dataset labels so they can be compared to the networks outputs
 print("\nSTATUS: Encoding Dataset Labels")
@@ -141,15 +142,15 @@ output_size = 10 # ten characters categories to choose from
 print("\nBuilding Neural Network Layers")
 # Creating the individual Neural and activation Layers
 layer0 = Dense(1024, input_size)
-activ0 = Sigmoid_Layer()
+activ0 = ReLU_Layer()
 layer1 = Dense(1024, 1024)
-activ1 = Sigmoid_Layer()
+activ1 = ReLU_Layer()
 layer2 = Dense(512, 1024)
-activ2 = Sigmoid_Layer()
+activ2 = ReLU_Layer()
 layer3 = Dense(256, 512)
-activ3 = Sigmoid_Layer()
+activ3 = ReLU_Layer()
 layer4 = Dense(64, 256)
-activ4 = Sigmoid_Layer()
+activ4 = ReLU_Layer()
 layer5 = Dense(output_size, 64)
 activ5 = Sigmoid_Layer()
 
