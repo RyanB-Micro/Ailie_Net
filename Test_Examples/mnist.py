@@ -21,8 +21,8 @@ image_test_file: The file containing the labeled image data for testing purposes
 
 epochs = 100
 learn_rate = 0.01
-image_data_file = 'D:/mnist_train.csv'
-image_test_file = 'D:/mnist_train.csv'
+image_data_file = 'Datasets/mnist_train.csv'
+image_test_file = 'Datasets/mnist_train.csv'
 
 # Empty lists to for later storing separate training data and labels
 training_labels = []
@@ -127,8 +127,8 @@ if first_label != first_decoded:
 # If there is a non match, then there is a compatibility issue between the dataset formating and the data loading.
 print("\nVisual Match Test - The displayed image should visually match the label.")
 print("(Close Plot Window to Continue)")
-#plt.imshow(training_data[0].reshape((28,28)), cmap='gray')
-#plt.show()
+plt.imshow(training_data[0].reshape((28,28)), cmap='gray')
+plt.show()
 
 
 """ Building the Model """
@@ -140,11 +140,11 @@ output_size = 10 # ten characters categories to choose from
 
 print("\nBuilding Neural Network Layers")
 # Creating the individual Neural and activation Layers
-layer0 = Dense(512, input_size)
+layer0 = Dense(1024, input_size)
 activ0 = Sigmoid_Layer()
-layer1 = Dense(256, 512)
+layer1 = Dense(512, 1024)
 activ1 = Sigmoid_Layer()
-layer2 = Dense(64, 256)
+layer2 = Dense(64, 512)
 activ2 = Sigmoid_Layer()
 layer3 = Dense(output_size, 64)
 activ3 = Sigmoid_Layer()

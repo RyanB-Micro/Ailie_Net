@@ -37,12 +37,20 @@ def train_network(network, inputs, targets, epochs, learn_rate, error_log, error
             #     print("Target: ", target)
             #     print("Error: ", error)
             #else:
-            progress = int((sample_count / len(inputs)) * 100)
-            progress_bar = '#' * int(progress/10)
+            epoch_progress = int((sample_count / len(inputs)) * 100)
+            epoch_progress_bar = '#' * int(epoch_progress/5)
+
+            train_progress = int((itt / epochs) * 100)
+            train_progress_bar = '#' * int(train_progress / 5)
+            train_progress_bar += '.' * int(20 - (train_progress / 5))
 
             if (sample_count % 10 == 0):
                 #sys.stdout.write(f"\rProgress: {progress} {sample_count}/{len(inputs)}%")
-                sys.stdout.write(f"\rProgress: {progress_bar} {progress}%")
+                sys.stdout.write(
+                    f"\rEpoch Progress: {epoch_progress_bar} {epoch_progress}%"
+                    f"\033[34m\nProgress: {train_progress_bar} {train_progress}%\033[0m"
+                    f"\033[2A" # Moves cursor back up a line
+                )
                 sys.stdout.flush()
 
             sample_count += 1
