@@ -19,7 +19,7 @@ image_data_file: The file containing the labeled image data for training purpose
 image_test_file: The file containing the labeled image data for testing purposes.
 """
 
-epochs = 200
+epochs = 100
 learn_rate = 0.01
 image_data_file = 'Datasets/mnist_train.csv'
 image_test_file = 'Datasets/mnist_train.csv'
